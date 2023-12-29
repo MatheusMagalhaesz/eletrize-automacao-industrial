@@ -36,6 +36,19 @@ def verifica_senha():
                 id_usuario, senha = linha
                 if entry_nome.get() == id_usuario and entry_senha.get() == senha:
                     messagebox.showinfo('Login', 'Seja Bem-Vindo!')
+                    tela_nova = Tk()
+                    tela_nova.title('Controle das manutenções')
+                    tela_nova.geometry('1920x1080')
+                    tela_nova.configure(background=colors['c0'])
+
+                    # Separação das telas
+                    frame_cima_nova = Frame(tela_nova, width=310, height=50, bg=colors['c1'], relief='flat')
+                    frame_cima_nova.grid(row=0, column=0, pady=1, padx=0, sticky=NSEW)
+
+                    frame_baixo_nova = Frame(tela_nova, width=310, height=250, bg=colors['c0'], relief='flat')
+                    frame_baixo_nova.grid(row=1, column=0, pady=1, padx=0, sticky=NSEW)
+                    tela.destroy()
+
                     return
     except FileNotFoundError:
         messagebox.showerror('Erro', 'Arquivo não encontrado.')
@@ -55,7 +68,8 @@ entry_nome.place(x=14, y=50)
 label_senha = Label(frame_baixo, text='SENHA DE AUTENTICAÇÃO *', anchor=NE, font='Ivy 10', bg=colors['c0'],
                     fg=colors['c1'])
 label_senha.place(x=10, y=95)
-entry_senha = Entry(frame_baixo, width=25, justify='left', show='*', font=("", 15), highlightthickness=1, relief='solid')
+entry_senha = Entry(frame_baixo, width=25, justify='left', show='*', font=("", 15), highlightthickness=1,
+                    relief='solid')
 entry_senha.place(x=14, y=130)
 
 button_confirmar = Button(frame_baixo, command=verifica_senha, text='ENTRAR', width=39, height=2, bg=colors['c1'],
