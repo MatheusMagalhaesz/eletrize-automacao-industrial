@@ -55,7 +55,7 @@ entry_nome.place(x=14, y=50)
 label_senha = Label(frame_baixo, text='SENHA DE AUTENTICAÇÃO *', anchor=NE, font='Ivy 10', bg=colors['c0'],
                     fg=colors['c1'])
 label_senha.place(x=10, y=95)
-entry_senha = Entry(frame_baixo, width=25, justify='left', font=("", 15), highlightthickness=1, relief='solid')
+entry_senha = Entry(frame_baixo, width=25, justify='left', show='*', font=("", 15), highlightthickness=1, relief='solid')
 entry_senha.place(x=14, y=130)
 
 button_confirmar = Button(frame_baixo, command=verifica_senha, text='ENTRAR', width=39, height=2, bg=colors['c1'],
