@@ -1,7 +1,11 @@
 import csv
+from datetime import datetime
 from tkinter import *
 from tkinter import messagebox
 
+
+now = datetime.now()
+data_hoje = str(datetime.timestamp(now))
 colors = {'c0': "#000000", 'c1': "#feffff"}
 
 # Criando tela de login
@@ -44,9 +48,12 @@ def verifica_senha():
                     # Separação das telas
                     frame_cima_nova = Frame(tela_nova, width=310, height=50, bg=colors['c1'], relief='flat')
                     frame_cima_nova.grid(row=0, column=0, pady=1, padx=0, sticky=NSEW)
+                    label_data = Label(frame_cima_nova, text=data_hoje, anchor=NE, font='Ivy 16', fg=colors['c0'])
+                    label_data.place(x=5, y=5)
 
                     frame_baixo_nova = Frame(tela_nova, width=310, height=250, bg=colors['c0'], relief='flat')
                     frame_baixo_nova.grid(row=1, column=0, pady=1, padx=0, sticky=NSEW)
+
                     tela.destroy()
 
                     return
