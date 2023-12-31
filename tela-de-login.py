@@ -3,7 +3,6 @@ from datetime import datetime
 from tkinter import *
 from tkinter import messagebox
 
-
 now = datetime.now()
 data_hoje = str(datetime.timestamp(now))
 colors = {'c0': "#000000", 'c1': "#feffff"}
@@ -11,7 +10,7 @@ colors = {'c0': "#000000", 'c1': "#feffff"}
 # Criando tela de login
 tela = Tk()
 tela.title('Gestão de Manutenção')
-tela.geometry("310x300")
+tela.geometry("310x355")
 tela.configure(background=colors['c0'])
 tela.resizable(width=FALSE, height=FALSE)
 
@@ -30,6 +29,13 @@ label_nome.place(x=5, y=5)
 
 label_separate = Label(frame_cima, text='', width=275, anchor=NW, font='Ivy 1', bg=colors['c1'], fg=colors['c1'])
 label_separate.place(x=10, y=45)
+
+
+def cadastra_mantenedor():
+    tela_cadastro = Tk()
+    tela_cadastro.title('CADASTRO COLABORADOR')
+    tela_cadastro.geometry("310x350")
+    tela_cadastro.configure(background=colors['c0'])
 
 
 def verifica_senha():
@@ -66,22 +72,27 @@ def verifica_senha():
 
 
 # Configuração do frame_baixo
-
+# Configuração usuário
 label_nome = Label(frame_baixo, text='ID COLABORADOR *', anchor=NE, font='Ivy 10', bg=colors['c0'], fg=colors['c1'])
 label_nome.place(x=10, y=20)
 entry_nome = Entry(frame_baixo, width=25, justify='left', font=("", 15), highlightthickness=1, relief='solid')
 entry_nome.place(x=14, y=50)
 
-label_senha = Label(frame_baixo, text='SENHA DE AUTENTICAÇÃO *', anchor=NE, font='Ivy 10', bg=colors['c0'],
-                    fg=colors['c1'])
+# Configuração senha
+label_senha = Label(frame_baixo, text='SENHA DE AUTENTICAÇÃO *', anchor=NE, font='Ivy 10', fg=colors['c1'], bg=colors['c0'])
 label_senha.place(x=10, y=95)
-entry_senha = Entry(frame_baixo, width=25, justify='left', show='*', font=("", 15), highlightthickness=1,
-                    relief='solid')
+entry_senha = Entry(frame_baixo, width=25, justify='left', show='*', font=("", 15), highlightthickness=1, relief='solid',)
 entry_senha.place(x=14, y=130)
 
+# Configuração botão-entrada
 button_confirmar = Button(frame_baixo, command=verifica_senha, text='ENTRAR', width=39, height=2, bg=colors['c1'],
-                          font='Ivy 8 bold', fg=colors['c0'], relief=RAISED, overrelief=RIDGE)
-button_confirmar.place(x=15, y=180)
+                          font='Ivy 8 bold', fg=colors['c0'], relief=RAISED, overrelief=RIDGE, justify='center')
+button_confirmar.place(x=15, y=170)
+
+# Configuração botão-cadastro
+button_cadastro = Button(frame_baixo, command=cadastra_mantenedor, text='CADASTRO COLABORADOR', width=39, height=2,
+                         bg=colors['c1'], font='Ivy 8 bold', fg=colors['c0'], relief=RAISED, overrelief=RIDGE)
+button_cadastro.place(x=15, y=215)
 
 # Run da tela
 tela.mainloop()
